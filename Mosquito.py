@@ -1,9 +1,9 @@
 import numpy as np
 
+
 class Mosquito:
 
-    def __init__(self, blood_meals = 0):
-
+    def __init__(self, blood_meals=0):
         x_coordinate = np.random.randint(0, 100)
         y_coordinate = np.random.randint(0, 100)
 
@@ -11,14 +11,13 @@ class Mosquito:
 
         self.blood_meals = blood_meals
 
-    def bite(self):
+    def bite(self, mosquito):
+        mosquito.blood_meals += 1
 
-        self.blood_meals +=1
+    def move(self, mosquito):
+        mosquito.coordinate[0] += np.random.randint(-2, 2)  # the mosquitoes position moves by up to +- 2 in every direction
+        mosquito.coordinate[1] += np.random.randint(-2, 2)
 
-
-
-    def breed(self):
-
-
-
+    def breed(self, mosquitoes):
+        mosquitoes.append(Mosquito())
 
